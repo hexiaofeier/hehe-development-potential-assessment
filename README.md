@@ -1,6 +1,6 @@
 # 盒盒行业与企业发展潜力评估
 
-> 研究行业、细分赛道或企业的发展条件，构建可比较的维度与评分模型，并用理想构型、历史高峰和现实锚点判断其发展位置、竞争力与投资吸引力。
+> 当你想快速了解一个行业、细分赛道或企业的发展现状，这个skill会构建一个可比较的维度与评分模型，把你的研究对象和理想构型（100分）、历史高峰（巅峰时代的可比对象）和现实锚点（当前可比对象）进行建模对比，快速判断其发展生态位、竞争力与投资吸引力。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-244C66.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-82B29B.svg)](https://agentskills.io/)
