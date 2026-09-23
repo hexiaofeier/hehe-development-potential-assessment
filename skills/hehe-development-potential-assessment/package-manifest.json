@@ -1,0 +1,9 @@
+﻿{
+  "schema_version": 1,
+  "entry_skill": "hehe-development-potential-assessment",
+  "install_policy": "standalone",
+  "install_policy_notes": "特殊能力的独立行研 Skill；不属于 hehe-industry-researcher 与13个专项组成的行业研究技能包。独立安装、独立校验、独立仓库发布。其他研究 Skill 及其结果均为可选输入，不构成运行依赖。",
+  "required_local_files": ["SKILL.md", "agents/openai.yaml", "requirements.txt", "references/行业建模交付模板.md", "references/HTML报告交付规范.md", "references/信息搜索与研究加工.md", "assets/研究报告HTML模板.html", "examples/model-input.example.json", "scripts/build-html-report.py", "scripts/build_scoring_workbook.py", "scripts/validate_scoring_workbook.py", "scripts/test_workbook_contract.py"],
+  "optional_inputs": ["user-materials", "public-information", "traditional-industry-or-company-analysis", "horizontal-vertical-analysis", "public-casebooks", "other-traceable-analysis-results"],
+  "excluded_from_public_package": ["_本地维护", "90_历史备份", "credentials", "root-junctions", "real-project-inputs-or-generated-workbooks"]
+}

@@ -1,0 +1,344 @@
+﻿{
+  "model": {
+    "name": "教学示例：两个细分赛道的比较",
+    "purpose": "演示共同维度、事实判断、权重和可调评分；对象与事实均为教学假设",
+    "mode": "横向对比",
+    "comparison_universe": "示例市场内两个细分赛道",
+    "status": "教学示例",
+    "author": "示例制作方",
+    "version": "v3.1",
+    "date": "2026-09-22",
+    "scope": "中国 / 2025年 / 人民币",
+    "rating_rules": [
+      {
+        "min_score": 80,
+        "label": "示例高优先级"
+      },
+      {
+        "min_score": 50,
+        "label": "示例观察区"
+      },
+      {
+        "min_score": 0,
+        "label": "示例低优先级"
+      }
+    ],
+    "scale_meanings": [
+      {
+        "range": "80-100",
+        "meaning": "示例高优先级"
+      },
+      {
+        "range": "50-79",
+        "meaning": "示例观察区"
+      },
+      {
+        "range": "0-49",
+        "meaning": "示例低优先级"
+      }
+    ],
+    "key_findings": [
+      "A需求增长较强；B在持续付费、政策条件上较好。",
+      "调整增长与政策权重，可观察两条赛道关注顺序如何变化。"
+    ],
+    "score_scale": 100
+  },
+  "dimensions": [
+    {
+      "id": "opportunity",
+      "name": "市场需求",
+      "question": "需求是否增长，并形成持续付费？",
+      "reason": "增长和持续付费共同说明需求潜力；各用不同事实评价。"
+    },
+    {
+      "id": "constraints",
+      "name": "政策与监管",
+      "question": "政策环境是否支持业务发展？",
+      "reason": "政策影响准入和经营成本，单独评价其作用。"
+    }
+  ],
+  "indicators": [
+    {
+      "id": "growth",
+      "dimension_id": "opportunity",
+      "name": "需求增长",
+      "weight": 0.4,
+      "direction": "positive",
+      "reason": "增长体现需求扩张速度；教学权重40%。",
+      "score_rule": "年需求增长率≥20%得100；10%—20%得70；0%—10%得40；负增长得10（教学分档）"
+    },
+    {
+      "id": "risk",
+      "dimension_id": "constraints",
+      "name": "政策支持",
+      "weight": 0.4,
+      "direction": "positive",
+      "reason": "准入及执行会直接影响增长兑现；教学权重40%。",
+      "score_rule": "支持广泛落实100；明确支持且部分落实70；经营限制明显40；核心业务无法开展0（教学分档）"
+    },
+    {
+      "id": "adoption",
+      "dimension_id": "opportunity",
+      "name": "持续付费",
+      "weight": 0.2,
+      "direction": "positive",
+      "reason": "通过客户行为判断需求的持续性；教学权重20%。",
+      "score_rule": "口头意愿10；单次付费试用40；多个客户持续付费70；多类客户稳定复购100（教学分档）"
+    }
+  ],
+  "objects": [
+    {
+      "id": "segment_a",
+      "name": "示例赛道A",
+      "scores": {
+        "growth": 70,
+        "risk": 40,
+        "adoption": 40
+      },
+      "status": "教学示例",
+      "confidence": "教学设定",
+      "score_reasons": {
+        "growth": "假设年需求增长15%，落在10%—20%档，得70分。",
+        "risk": "假设经营限制明显，对照政策支持档位得40分。",
+        "adoption": "假设只有单次付费试用，持续性尚弱，对照标准得40分。"
+      }
+    },
+    {
+      "id": "segment_b",
+      "name": "示例赛道B",
+      "scores": {
+        "growth": 40,
+        "risk": 70,
+        "adoption": 70
+      },
+      "status": "教学示例",
+      "confidence": "教学设定",
+      "score_reasons": {
+        "growth": "假设年需求增长5%，落在0%—10%档，得40分。",
+        "risk": "假设支持政策明确、部分落实，对照标准得70分。",
+        "adoption": "假设多个客户持续付费，对照标准得70分。"
+      }
+    }
+  ],
+  "anchors": [
+    {
+      "id": "ideal",
+      "name": "理论满分构型",
+      "scores": {
+        "growth": 100,
+        "risk": 100,
+        "adoption": 100
+      },
+      "reason": "由需求增长、持续付费、政策落实三项条件共同定义理想状态",
+      "meaning": "各项100分的条件及理由见逐项评分依据",
+      "score_reasons": {
+        "growth": "理想条件为需求高速、持续增长；教学标尺以年增长至少20%对应100分。",
+        "risk": "理想条件为政策稳定支持并广泛落实，有利于准入和经营，得100分。",
+        "adoption": "理想条件为多类客户稳定复购，表明需求持续成立，得100分。"
+      }
+    },
+    {
+      "id": "mature",
+      "name": "示例历史高峰赛道",
+      "scores": {
+        "growth": 100,
+        "risk": 70,
+        "adoption": 100
+      },
+      "reason": "演示比较需求爆发、复购形成而政策尚未完全落实的历史时期",
+      "meaning": "2011年（教学设定）",
+      "score_reasons": {
+        "growth": "假设历史高峰时年增长25%，达到至少20%档，得100分。",
+        "risk": "假设当时政策明确支持但落实仍不全面，得70分。",
+        "adoption": "假设当时多类客户稳定复购，得100分。"
+      }
+    }
+  ],
+  "anchor_comparisons": [
+    {
+      "object_id": "segment_a",
+      "anchor_id": "mature",
+      "note": "需求已增长，持续付费和政策条件与历史参照仍有差距。"
+    },
+    {
+      "object_id": "segment_b",
+      "anchor_id": "mature",
+      "note": "持续付费及政策条件较好，增长弱于历史参照。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "subject_type": "对象",
+      "subject_id": "segment_a",
+      "indicator_id": "growth",
+      "claim": "假设年需求增长15%",
+      "value": 15,
+      "unit": "%",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S02",
+      "subject_type": "对象",
+      "subject_id": "segment_a",
+      "indicator_id": "risk",
+      "claim": "假设经营限制明显",
+      "value": "",
+      "unit": "",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S03",
+      "subject_type": "对象",
+      "subject_id": "segment_b",
+      "indicator_id": "growth",
+      "claim": "假设年需求增长5%",
+      "value": 5,
+      "unit": "%",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S04",
+      "subject_type": "对象",
+      "subject_id": "segment_b",
+      "indicator_id": "risk",
+      "claim": "假设支持政策明确、部分落实",
+      "value": "",
+      "unit": "",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S05",
+      "subject_type": "锚点",
+      "subject_id": "ideal",
+      "indicator_id": "growth",
+      "claim": "理想条件为需求高速、持续增长；教学标尺以年增长至少20%对应100分。",
+      "value": 20,
+      "unit": "%",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S06",
+      "subject_type": "锚点",
+      "subject_id": "ideal",
+      "indicator_id": "risk",
+      "claim": "理想条件为政策稳定支持并广泛落实，有利于准入和经营，得100分。",
+      "value": "",
+      "unit": "",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S07",
+      "subject_type": "锚点",
+      "subject_id": "mature",
+      "indicator_id": "growth",
+      "claim": "假设历史高峰时年增长25%",
+      "value": 25,
+      "unit": "%",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S08",
+      "subject_type": "锚点",
+      "subject_id": "mature",
+      "indicator_id": "risk",
+      "claim": "假设当时政策明确支持但落实仍不全面，得70分。",
+      "value": "",
+      "unit": "",
+      "date": "教学时期",
+      "status": "待人工确认",
+      "rating": "教学假设",
+      "notes": "教学假设"
+    },
+    {
+      "id": "S09",
+      "subject_type": "对象",
+      "subject_id": "segment_a",
+      "indicator_id": "adoption",
+      "claim": "假设只有单次付费试用，持续性尚弱",
+      "value": "",
+      "unit": "",
+      "status": "待人工确认",
+      "notes": "教学假设",
+      "rating": "教学假设",
+      "date": "教学时期"
+    },
+    {
+      "id": "S10",
+      "subject_type": "对象",
+      "subject_id": "segment_b",
+      "indicator_id": "adoption",
+      "claim": "假设多个客户持续付费",
+      "value": "",
+      "unit": "",
+      "status": "待人工确认",
+      "notes": "教学假设",
+      "rating": "教学假设",
+      "date": "教学时期"
+    },
+    {
+      "id": "S11",
+      "subject_type": "锚点",
+      "subject_id": "ideal",
+      "indicator_id": "adoption",
+      "claim": "理想条件为多类客户稳定复购，表明需求持续成立，得100分。",
+      "value": "",
+      "unit": "",
+      "status": "待人工确认",
+      "notes": "教学假设",
+      "rating": "教学假设",
+      "date": "教学时期"
+    },
+    {
+      "id": "S12",
+      "subject_type": "锚点",
+      "subject_id": "mature",
+      "indicator_id": "adoption",
+      "claim": "假设当时多类客户稳定复购，得100分。",
+      "value": "",
+      "unit": "",
+      "status": "待人工确认",
+      "notes": "教学假设",
+      "rating": "教学假设",
+      "date": "教学时期"
+    }
+  ],
+  "assumptions": [
+    {
+      "category": "权重",
+      "item": "市场需求",
+      "value": "60%",
+      "reason": "增长40%与持续付费20%，用于演示需求扩张和稳定性的不同作用",
+      "status": "教学设定"
+    },
+    {
+      "category": "权重",
+      "item": "政策与监管",
+      "value": "40%",
+      "reason": "演示政策对业务开展的重要影响",
+      "status": "教学设定"
+    }
+  ],
+  "calculation_audit": []
+}

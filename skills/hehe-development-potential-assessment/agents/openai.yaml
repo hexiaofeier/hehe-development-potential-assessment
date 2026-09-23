@@ -1,0 +1,4 @@
+interface:
+  display_name: "行业与企业发展潜力评估"
+  short_description: "研究发展条件，以分维度评分比较行业、子赛道或企业的优势与机会"
+  default_prompt: "使用 $hehe-development-potential-assessment，先对目标与参照做多轮公开信息搜索、原文研读和研究加工，提取发展条件、痛点与评价维度，再依据材料建立理想模型、评分标尺和权重，完成百分制比较，解释得分与差距，交付 Markdown 主报告、同内容 HTML 阅读版与可调 Excel。"

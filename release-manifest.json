@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "display_name": "盒盒行业与企业发展潜力评估",
+  "repository_slug": "hehe-development-potential-assessment",
+  "version": "2026.09.23-v1",
+  "namespace": "hehe-",
+  "entry_skill": "hehe-development-potential-assessment",
+  "install_policy": "standalone",
+  "skills": [
+    {
+      "name": "hehe-development-potential-assessment",
+      "role": "standalone-specialized-industry-research"
+    }
+  ],
+  "source_skill": "development-potential-assessment",
+  "source_skill_sha256": "8EB6AE9064E83F974C6412EF9027FCFED28AD24D22AFF6483723640B0EE48862",
+  "public_skill_sha256": "FBE847CBA7EB64FC2D25C02019E83F4A41C1B466D7984A4022DBB3C0941DCE83",
+  "license": "MIT"
+}
