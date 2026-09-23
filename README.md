@@ -165,6 +165,7 @@ HTML 与 Markdown 内容一致，使用固定离线模板：
 
 ```bash
 git clone https://github.com/hexiaofeier/hehe-development-potential-assessment.git
+cd hehe-development-potential-assessment
 ```
 
 将下面的文件夹复制到客户端的 Skills 目录：
@@ -190,6 +191,8 @@ python -m pip install -r skills/hehe-development-potential-assessment/requiremen
 复制后新开会话，让客户端重新发现 Skill。
 
 ## 快速开始
+
+以下示例使用 Codex 的 `$` 调用写法；在 Claude Code 中改用 `/hehe-development-potential-assessment`。
 
 行业比较：
 
@@ -218,20 +221,22 @@ python -m pip install -r skills/hehe-development-potential-assessment/requiremen
 
 ## 随包工具
 
-生成评分模型：
+以下命令在克隆后的仓库根目录运行。先用随包教学示例验证生成与校验；实际研究时再换成根据材料填写的输入 JSON。
+
+生成教学示例评分模型：
 
 ```bash
 python skills/hehe-development-potential-assessment/scripts/build_scoring_workbook.py \
-  --input model-input.json \
-  --output 发展潜力评分模型.xlsx
+  --input skills/hehe-development-potential-assessment/examples/model-input.example.json \
+  --output 教学示例评分模型.xlsx
 ```
 
-校验评分模型：
+校验教学示例评分模型：
 
 ```bash
 python skills/hehe-development-potential-assessment/scripts/validate_scoring_workbook.py \
-  --workbook 发展潜力评分模型.xlsx \
-  --contract model-input.json
+  --workbook 教学示例评分模型.xlsx \
+  --contract skills/hehe-development-potential-assessment/examples/model-input.example.json
 ```
 
 生成 HTML 阅读版：
