@@ -607,6 +607,15 @@ def build_assumptions(wb: Workbook, data: dict) -> None:
     set_widths(ws, {1: 22, 2: 22, 3: 28, 4: 40, 5: 52, 6: 60})
 
 
+def combination_formula(letter: str, last: int) -> str:
+    weights = f"$B$3:$B${last}"
+    scores = f"{letter}3:{letter}{last}"
+    count = last - 2
+    return (f'=IF(AND(COUNT({weights})={count},MIN({weights})>=0,'
+            f'SUM({weights})>0,COUNT({scores})={count}),'
+            f'SUMPRODUCT({weights},{scores})/SUM({weights}),"")')
+
+
 def build_combination(wb: Workbook, data: dict, object_rows: dict[str, int], detail_score_col: int) -> None:
     if data["model"].get("mode") != "组合加权":
         return
@@ -614,7 +623,7 @@ def build_combination(wb: Workbook, data: dict, object_rows: dict[str, int], det
     indicators = data["indicators"]
     end_col = len(indicators) + 4
     style_title(ws, "组合加权｜调子赛道占比，查看母赛道的整体表现", end_col)
-    ws.append(["对象", "市场规模权重", "权重来源"] + [item["name"] for item in indicators] + ["综合得分（百分制）"])
+    ws.append(["对象", "组合权重", "权重来源"] + [item["name"] for item in indicators] + ["综合得分（百分制）"])
     style_header(ws[2])
     names = {item["id"]: item["name"] for item in data["objects"]}
     for component in data["combination"]["components"]:
@@ -624,7 +633,7 @@ def build_combination(wb: Workbook, data: dict, object_rows: dict[str, int], det
         editable(ws.cell(ws.max_row, 2), component["source"])
         ws.cell(ws.max_row, 2).number_format = "0.0%"
     last = ws.max_row
-    ws.append(["整体（加权）", f"=SUM(B3:B{last})", "权重按子品类市场规模占比"] + [f"=SUMPRODUCT($B$3:$B${last},{get_column_letter(col)}3:{get_column_letter(col)}{last})" for col in range(4, end_col + 1)])
+    ws.append(["整体（加权）", f"=SUM(B3:B{last})", data["combination"].get("weight_basis", "子品类市场规模占比") + "；按合计归一化；输入缺失或权重无效时结果留空"] + [combination_formula(get_column_letter(col), last) for col in range(4, end_col + 1)])
     for cell in ws[ws.max_row]:
         cell.fill = PatternFill("solid", fgColor=LIGHT_BLUE)
         cell.font = Font(bold=True)

@@ -138,6 +138,12 @@ def main() -> None:
             {"object_id": "segment_b", "weight": 144.1 / 769.4, "source": "示例市场规模口径B；待核实"},
         ]}
         assert build(combo)["passed"]
+        combo["combination"]["weight_basis"] = "未来三年收入情景占比"
+        assert build(combo)["passed"]
+        sheet = load_workbook(workbook)["组合加权"]
+        assert "未来三年收入情景占比" in sheet["C5"].value
+        corrupt("组合加权", "D5", "=SUMPRODUCT($B$3:$B$4,D3:D4)")
+        assert build(combo)["passed"]
         composite_col = get_column_letter(len(combo["indicators"]) + 4)
         corrupt("组合加权", f"{composite_col}3", "='指标详表'!D5")
         assert build(combo)["passed"]

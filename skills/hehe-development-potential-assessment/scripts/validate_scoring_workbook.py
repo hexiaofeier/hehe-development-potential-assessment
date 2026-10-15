@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Validate structure and auditability of an Industry Analyst Modeler workbook."""
 
 from __future__ import annotations
@@ -9,7 +9,7 @@ from pathlib import Path
 from openpyxl.utils import get_column_letter
 
 from build_scoring_workbook import (
-    coverage_label, dimension_groups, difference_formula,
+    coverage_label, dimension_groups, difference_formula, combination_formula,
     load_contract as validate_input_contract, rating_formula, weighted_formula,
     indicator_weight_refs, dimension_weight_formula, score_formula,
 )
@@ -384,7 +384,7 @@ def validate(path: Path, contract_path: Path | None = None) -> dict:
                     errors.append("Combination weight total formula is wrong")
                 for col in range(4, len(contract["indicators"]) + 5):
                     letter = get_column_letter(col)
-                    if combo.cell(total_row, col).value != f"=SUMPRODUCT($B$3:$B${total_row - 1},{letter}3:{letter}{total_row - 1})":
+                    if combo.cell(total_row, col).value != combination_formula(letter, total_row - 1):
                         errors.append(f"Combination weighted formula is wrong at column {letter}")
 
     cached = load_workbook(path, data_only=True)
